@@ -6,6 +6,9 @@ class Counter extends Component {
     incrementIfOdd = () => {
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
+        if (this.props.count % 2 !== 0 ) {
+            this.incrementAsync();
+        }
     };
 
     incrementAsync = () => {
@@ -23,7 +26,7 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={this.incrementAsync}>
+                <button onClick={this.incrementIfOdd}>
                     +
                 </button>
                 <button onClick={() => {this.props.decrement(this.props.count)}}>
